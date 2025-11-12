@@ -1,0 +1,196 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right,#74ebd5,#acb6e5);
+    /*
+    This creates a gradient background that blends:
+        From color #74ebd5 (light teal)
+        To #acb6e5 (light purple)
+        Going from left to right across the page.
+    It looks modern and softens the page
+    */
+    min-height: 100vh;
+    /*
+    vh = viewport height (the height of your screen).
+    100vh means “take up at least the full screen height”.
+    Ensures content is vertically centered, even if little content exists.
+    */
+    display: flex;
+    justify-content: center;
+    /*Horizontally centers the content (i.e., the .container div).*/
+    align-items: center;
+    /*Vertically centers the content.*/
+}
+
+/*
+But to fully ensure responsiveness, we will:
+    Use relative units (%, rem, vh, vw) instead of fixed units.
+    Avoid using hard-coded widths in px (or limit them with max-width).
+    Add media queries (optional for extra tuning, but not needed yet).
+*/
+
+.container{
+    background-color: white;
+    padding: 2rem;
+    /*
+    Adds space inside the container on all four sides.
+    rem = root em → relative to the root font size (usually 1rem = 16px).
+        So 2rem = 32px.
+    Makes the content inside not feel squished.
+    */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    /*
+    Adds a drop shadow below the box.
+    It gives a "card" effect, making the container look raised above the background.
+        0 → no horizontal offset
+        8px → vertical offset (shadow moves down)
+        16px → blur radius
+        rgba(...) → semi-transparent black color
+    */
+    width: 90%;
+    /*
+    Makes the box take up 90% of the screen width.
+    This is especially helpful on small screens (like mobile).
+    */
+    max-width: 400px;
+    /*
+    Prevents the container from becoming too wide on large screens.
+    So even on a laptop or desktop, it will never be wider than 400px.
+    */
+    text-align: center;
+    /*Centers all the text inside the container.*/
+
+    /*
+    Responsive Notes:
+    Using width: 90% + max-width: 400px = ✅ Good for all screen sizes.
+    No horizontal scrollbars
+    Looks balanced on mobile, tablet, and desktop
+    */
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: #333;
+  /*
+    Sets the text color to dark gray.
+    #333 is a softer alternative to pure black (#000), often used in modern designs
+  */
+}
+
+
+.input-container {
+  display: flex;
+  /*This tells the input to grow and fill available space inside a flex container.
+  This only works because its parent (.input-container) uses:
+    display: flex;
+
+     Effect:
+        The input stretches to take up most of the row.
+        The button beside it takes only the space it needs.
+        Helps on mobile screens — input stays wide, button stays tight.
+  */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+#city-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+#get-weather-btn {
+  padding: 0.5rem 1rem;
+  /*
+    Top & bottom padding: 0.5rem (adds height)
+    Left & right padding: 1rem (adds width)
+  */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+#get-weather-btn:hover {
+  background-color: #45a049;
+}
+
+#weather-info {
+  margin-top: 1rem;
+}
+
+#city-name {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#temperature {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+#description {
+  font-style: italic;
+  color: #666;
+}
+
+#error-message {
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+
+  /*
+  This class is super important in JavaScript-based websites.
+  What it does:
+    Hides any element it’s applied to.
+    The element is not visible and not taking up space in the layout.
+*/
+}
+
+
+/*Media Query for Responsiveness*/
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #city-input, #get-weather-btn {
+    width: 100%;
+  }
+
+  #city-name {
+    font-size: 1.2rem;
+  }
+
+  #temperature {
+    font-size: 1rem;
+  }
+
+  #description {
+    font-size: 0.95rem;
+  }
+}
+
+
+
