@@ -30,3 +30,5 @@ greet(); //output is hello => because during the memory phase , the entire funct
 function greet(){
     console.log("hello");
 }
+
+
