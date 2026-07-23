@@ -131,7 +131,9 @@ student2.hobbies.push("Football");
 
 console.log(student1.name);//zakir becoz primitive value
 console.log(student1.marks.math);//100 becoz array
-console.log(student1.hobbies); //becoz array
+console.log(student1.hobbies); //becoz array  
+
+
 
 
 
