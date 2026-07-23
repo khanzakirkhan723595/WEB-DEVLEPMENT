@@ -1,0 +1,223 @@
+/* ==================== GLOBAL RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding & border do not increase element size */
+}
+
+/* ==================== BODY LAYOUT ==================== */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Clean sans-serif font */
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text for contrast */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 100vh;           /* Full viewport height */
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+.container {
+  background-color: #1e1e1e; /* Card-like appearance */
+  padding: 20px;
+  width: 400px;              /* Base width */
+  border-radius: 10px;       /* Rounded corners */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.9); /* Shadow effect */
+}
+
+/* Responsive container width */
+@media(max-width:480px){
+  .container {
+    width: 90%; /* Expand for small devices */
+  }
+}
+
+/* ==================== HEADING ==================== */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+@media(max-width:480px){
+  h1 {
+    font-size: 20px; /* Smaller heading on small screens */
+  }
+}
+
+/* ==================== INPUT SECTION ==================== */
+.input-container {
+  display: flex;
+  gap: 10px;         /* Spacing between items */
+  flex-wrap: wrap;   /* Wrap items to new line if needed */
+}
+
+.input-container input,
+.input-container button {
+  padding: 10px;
+  font-size: 1em;
+}
+
+/* Responsive input layout */
+@media(max-width:768px){
+  .input-container {
+    flex-direction: column; /* Stack vertically on medium screens */
+  }
+  .input-container input,
+  .input-container button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Large screen layout with flexible width */
+@media(min-width:768px){
+  .input-container input,
+  .input-container button {
+    flex: 1 1 200px;     /* Grow/Shrink with base width */
+    min-width: 100px;    /* Prevent too narrow */
+  }
+  .input-container button {
+    margin-bottom: 10px; /* Space below button if it wraps */
+  }
+}
+
+/* Text input field */
+input[type="text"] {
+  min-width: 200px;
+  padding: 20px;               /* Comfortable typing area */
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+}
+
+/* Due date input field */
+#due-date {
+  min-width: 120px;
+  flex: 1; /* Grow with others */
+  
+  
+}
+
+/* ==================== BUTTONS ==================== */
+button {
+  min-width: 100px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea; /* Purple */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: #0c89f0; /* Darker hover */
+}
+
+/* ==================== TASK LIST STYLING ==================== */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #333333;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;            /* Wrap text and button if needed */
+  word-break: break-word;     /* Prevent overflow */
+}
+
+li span {
+  flex: 1; /* Allow task text to grow */
+}
+
+/* Completed task styling */
+li.completed {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  opacity: 0.9;
+}
+
+/* Delete button inside li */
+li button {
+  background-color: lch(1 0 0); /* black delete */
+  border: none;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsive task layout */
+@media (max-width:480px){
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  li button {
+    margin: 10px 0 0;
+  }
+}
+
+/* ==================== CLEAR COMPLETED SECTION ==================== */
+#clear-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#clear-completed-btn {
+  display: none; /* Hidden by default */
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* ==================== FILTER BUTTONS ==================== */
+#filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.filter-btn.active {
+  background-color: #333;
+  color: white;
+}
+
+/* Filter & Clear buttons responsive */
+@media (max-width: 480px) {
+  #clear-completed-btn,
+  .filter-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* ==================== DUE DATE DISPLAY TEXT ==================== */
+li small {
+  color: rgb(201, 192, 3);
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 0.7em;
+}
+
+
