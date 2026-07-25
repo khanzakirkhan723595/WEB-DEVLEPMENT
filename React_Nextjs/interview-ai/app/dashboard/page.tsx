@@ -1,26 +1,44 @@
-import GenerateInterview 
-from "@/components/GenerateButton";
+import InterviewCard 
+from "@/components/InterviewCard";
+import TestButton from "@/components/TestButton";
 
 
-export default function Dashboard(){
+export default async function Dashboard(){
+
+const interviews=[
+"JavaScript Interview",
+"React Interview",
+"Next.js Interview"
+]
 
 
-return (
+return(
 
 <div>
 
-
 <h1>
-Dashboard
+Interview Topics
 </h1>
 
 
-<GenerateInterview/>
+{
+interviews.map((item,index)=>(
+
+<p key={index}>
+{item}
+</p>
+
+))
+}
+
+
+<InterviewCard/>
+
+<TestButton/>
 
 
 </div>
 
-);
-
+)
 
 }
