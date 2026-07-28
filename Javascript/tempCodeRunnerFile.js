@@ -1,3 +1,2 @@
-const res=alpha.splice(1,3);
-// console.log(alpha);
-// console.log(res)
+console.log(incre());
+// console.log(incre());
